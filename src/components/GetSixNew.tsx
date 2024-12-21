@@ -1,5 +1,5 @@
 "use client"
-import prisma from '@/utils/dp'
+
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
@@ -7,7 +7,7 @@ import FormatNumber from 'format-number'
 import { Product } from '@prisma/client'
 import { Button } from './ui/button'
 import Link from 'next/link'
-import Image from 'next/image'
+
 import { Skeleton } from './ui/skeleton'
 
 function GetSixPopProducts() {

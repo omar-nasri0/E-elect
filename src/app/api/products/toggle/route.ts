@@ -9,6 +9,7 @@ export async function POST (request:NextRequest) {
             data:{isAvailableForPurchase:body.isAvailableForPurchase}})
         return NextResponse.json({ success: true, product });
     } catch (error) {
+        console.log(error)
         return NextResponse.json({ success: false }, { status: 400 });
     }
 }

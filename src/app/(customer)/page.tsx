@@ -1,9 +1,8 @@
 
-import prisma from '@/utils/dp'
 import React from 'react'
 import GetSixPopProducts from '@/components/GetSixPopProducts'
 import GetSixNew from '@/components/GetSixNew' 
-import { ArrowBigRight, ArrowRight } from 'lucide-react'
+import {  ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
     

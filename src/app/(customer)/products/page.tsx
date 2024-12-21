@@ -1,5 +1,5 @@
 "use client"
-import prisma from '@/utils/dp'
+
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -7,10 +7,10 @@ import FormatNumber from 'format-number'
 import { Product } from '@prisma/client'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import Image from 'next/image'
+
 import { Skeleton } from '@/components/ui/skeleton'
 
-function page() {
+function Page() {
     const format = FormatNumber({ prefix: '$', integerSeparator: "," })
     const [data, setData] = useState<Product[]>([])
     const [loading, setLoading] = useState(true)
@@ -78,4 +78,4 @@ function page() {
     )
 }
 
-export default page
+export default Page

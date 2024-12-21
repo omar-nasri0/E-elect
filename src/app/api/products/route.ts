@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import Tr from "@/utils/tr";
+
 import addSchema from "@/utils/validation";
 import prisma from "@/utils/dp";
 import { Product } from "@prisma/client";

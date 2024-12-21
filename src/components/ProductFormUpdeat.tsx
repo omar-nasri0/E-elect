@@ -7,18 +7,21 @@ import formatNumber from 'format-number'
 import { Button } from "@/components/ui/button"
 import axios from "axios"
 import { useRouter } from "next/navigation"
-import { Product } from "@prisma/client"
-interface ProductData {
-    [key: string]: string | number | File | undefined;
-  }
-  
+
 interface input {
     name: string
 }
-
+interface edit {
+    id: string
+    name: string,
+    priceInCents: number
+    description: string
+    filePath: string,
+    imagePath: string,
+}
 interface prop {
     input: input[] // For input elements
-    edit: Product// Initial data for editing
+    edit: edit[] | any // Initial data for editing
 }
 interface handle {
     name: string,
@@ -55,7 +58,7 @@ function ProductFormUpdate({ input, edit }: prop) {
         const file = event.target.files?.[0]; 
 
         setData(prevData => {
-            const updatedData:any = { ...prevData };
+            const updatedData: any = { ...prevData };
 
             if (file && (id === "file" || id === "image")) {
                 updatedData[name] = file; 

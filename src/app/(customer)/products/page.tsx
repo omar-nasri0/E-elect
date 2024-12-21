@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
 import { Skeleton } from '@/components/ui/skeleton'
+import Image from 'next/image'
 
 function Page() {
     const format = FormatNumber({ prefix: '$', integerSeparator: "," })
@@ -53,11 +54,8 @@ function Page() {
                 data.map((val, i) => (
                     <Card key={i} className="flex flex-col max-w-xs">
                         <div className="relative w-full h-52">
-                            <img
-                                src={val.imagePath}
-                                alt={val.name}
-                                className="w-full h-full object-fill"
-                            />
+                            {/* <Image src={val.imagePath} alt={val.name} className="w-full h-full object-fill"/> */}
+                            <Image src={val.imagePath} alt={val.name} className="w-full h-full object-fill" width={320}/>
                         </div>
                         <CardHeader>
                             <CardTitle>{val?.name}</CardTitle>

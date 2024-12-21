@@ -27,17 +27,21 @@ interface Handle {
     id: string;
 }
 
+interface ProductData {
+    [key: string]: string | number | File | undefined;
+}
+
 function ProductsForm({ input }: Prop) {
     const formatCurrency = formatNumber({ prefix: "$", integerSeparator: "," });
     const [priceInCents, setPriceInCents] = useState<number | undefined>(0);
-    const [data, setData] = useState<Record<string, any>>({});
+    const [data, setData] = useState<ProductData>({});
     const [errors, setErrors] = useState<Record<string, string | number>>({});
     const router = useRouter();
 
     useEffect(() => {
-        const initialData: Record<string, any> = {};
+        const initialData: ProductData = {};
         input.forEach(e => {
-            initialData[e.name] =  "";
+            initialData[e.name] = "";
         });
         setData(initialData);
     }, [input]);
@@ -52,8 +56,9 @@ function ProductsForm({ input }: Prop) {
             if (file && (id === "file" || id === "image")) {
                 updatedData[name] = file;
             } else if (id === "PriceInCents") {
-                setPriceInCents(Number(value));
-                updatedData[name] = Number(value);
+                const numericValue = Number(value);
+                setPriceInCents(numericValue);
+                updatedData[name] = numericValue;
             } else {
                 updatedData[name] = value;
             }
@@ -63,14 +68,18 @@ function ProductsForm({ input }: Prop) {
 
         setErrors(prevErrors => ({ ...prevErrors, [name]: "" }));
     };
-console.log(data)
+
     const send = async (e: React.FormEvent) => {
         e.preventDefault();
         setErrors({});
 
         const formData = new FormData();
         Object.entries(data).forEach(([key, value]) => {
-            formData.append(key, value);
+            if (value instanceof File) {
+                formData.append(key, value);
+            } else {
+                formData.append(key, value?.toString() || "");
+            }
         });
 
         try {

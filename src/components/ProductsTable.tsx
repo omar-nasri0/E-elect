@@ -2,9 +2,9 @@
 import React from 'react'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import prisma from '@/utils/dp'
-import { CheckCircle, CheckCircle2,  MoreVertical, XCircle } from 'lucide-react'
+import {  CheckCircle2,  MoreVertical, XCircle } from 'lucide-react'
 import formatNumber from "format-number"
-import { DropdownMenu, DropdownMenuSeparator } from '@radix-ui/react-dropdown-menu'
+import { DropdownMenu } from '@radix-ui/react-dropdown-menu'
 import { DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu'
 import Link from 'next/link'
 import ProductActive from '@/components/ProductActive'

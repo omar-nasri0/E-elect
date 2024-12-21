@@ -8,18 +8,14 @@ import { Button } from "@/components/ui/button"
 import axios from "axios"
 import { useRouter } from "next/navigation"
 import { Product } from "@prisma/client"
-
+interface ProductData {
+    [key: string]: string | number | File | undefined;
+  }
+  
 interface input {
     name: string
 }
-interface edit {
-    id: string
-    name: string,
-    priceInCents: number
-    description: string
-    filePath: string,
-    imagePath: string,
-}
+
 interface prop {
     input: input[] // For input elements
     edit: Product// Initial data for editing

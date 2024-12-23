@@ -122,7 +122,7 @@ function ProductFormUpdate({ input, edit }: prop) {
         if (img) formData.append('image', img);
 
         try {
-            await axios.put(`http://localhost:3000/api/products/${data.id}`, formData, {
+            await axios.put(`/api/products/${data.id}`, formData, {
                 headers: { "Content-Type": "multipart/form-data" }
             });
             router.push("/admin/products");

@@ -16,7 +16,7 @@ export default function ActiveProducts({ id, isAvailableForPurchase }: Prop) {
   const handleToggle = () => {
     startTransition(async () => {
       try {
-        const response = await axios.post('http://localhost:3000/api/products/toggle', {
+        const response = await axios.post('/api/products/toggle', {
           
             id,
             isAvailableForPurchase: !isAvailableForPurchase,

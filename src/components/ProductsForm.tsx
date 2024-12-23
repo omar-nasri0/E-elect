@@ -83,7 +83,7 @@ function ProductsForm({ input }: Prop) {
         });
 
         try {
-            await axios.post("http://localhost:3000/api/products", formData, {
+            await axios.post("/api/products", formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
             router.push("/admin/products");

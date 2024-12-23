@@ -16,7 +16,7 @@ export default function  ActiveProducts({ id, disabled }: Prop) {
   const handleDelete = () => {
     startTransition( async () => {
       try {
-        await  axios.post('http://localhost:3000/api/products/delete', {
+        await  axios.post('/api/products/delete', {
           id
         });
         console.log('Product availability toggled successfully:', );

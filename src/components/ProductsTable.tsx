@@ -60,7 +60,7 @@ async function ProductsTable() {
                                     <DropdownMenuContent>
                                         <DropdownMenuItem asChild className='cursor-pointer'>
                                            
-                                           <Link href={`/admin/products/${product.id}/edit`}>
+                                           <Link href={`/admin/products/${product.id}`}>
                                             Edit</Link>
                                             </DropdownMenuItem>
                                             <ProductActive id={product.id} isAvailableForPurchase={product.isAvailableForPurchase}/>

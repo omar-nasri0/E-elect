@@ -3,8 +3,9 @@ import ProductFormUpdate from '@/components/ProductFormUpdeat';
 import prisma from '@/utils/dp';
 import React from 'react';
 
-async function page({ params }: { params: { id: string } }) {
-  const { id } = params;
+async function page({ params }: { params: any}) {
+  console.log(params)
+  const { id } = await params;
   console.log("Product ID:", id); // Add logging to check the value of id
 
   const input = [
